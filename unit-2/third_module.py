@@ -5,7 +5,7 @@ def hello():
     """
     This print a msg
     """
-    print("Hello")
+    print("I do not even know why I asked that question.")
 
 # Call our function
 if __name__ == "__main__":
