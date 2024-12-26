@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def mandelbrot(nx, xmin=-2.0, xmax=2.0, ymin=-2.0, ymax=2.0, max_iter=10):
+def mandelbrot(nx, xmin=-2.0, xmax=2.0, ymin=-2.0, ymax=2.0, max_iter=20, show = False):
     """create a mandlebrot set with a resolution
     nxxnx"""
 
@@ -17,7 +17,7 @@ def mandelbrot(nx, xmin=-2.0, xmax=2.0, ymin=-2.0, ymax=2.0, max_iter=10):
 
     z = np.zeros((nx, nx), dtype=np.complex128)
 
-    m = np.zeros((nx, nx), dtype=np.int)
+    m = np.zeros((nx, nx), dtype=np.int32)
 
     for i in range(max_iter):
         z = z**2 + c
@@ -27,8 +27,12 @@ def mandelbrot(nx, xmin=-2.0, xmax=2.0, ymin=-2.0, ymax=2.0, max_iter=10):
     fig, ax = plt.subplots()
     fig.set_size_inches = (8, 8)
     im = ax.imshow(np.transpose(m), origin="lower",
-                   extent=[xmin, xmax, ymin, ymax])
+                   extent=[xmin, xmax, ymin, ymax], cmap="inferno")
 
     fig.colorbar(im, ax=ax)
+
+    # If show is True, display the plot
+    if show:
+        plt.show()
 
     return fig
