@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Function
-def hello():
+def then():
     """
     This print a msg
     """
